@@ -1,0 +1,55 @@
+﻿<Window x:Class="WpfApp6.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp6"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="1200">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="600"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
+        </Grid.RowDefinitions>
+        <ListBox x:Name="zakupkaLstBox" ScrollViewer.CanContentScroll="False" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="2" Padding="5">
+                        <StackPanel>
+                            <TextBlock FontSize="20" Text="{Binding ZakupkaId, StringFormat='Номер закупки: {0}'}"></TextBlock>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Column="1" Margin="10,10,0,0">
+            <RadioButton FontSize="18" x:Name="privoljRadio" VerticalContentAlignment="Center" Checked="severoKavkasRadio_Checked" GroupName="okruga">Приволжский федеральный округ</RadioButton>
+            <RadioButton FontSize="18" x:Name="severoKavkasRadio" VerticalContentAlignment="Center" GroupName="okruga" Checked="severoKavkasRadio_Checked">Северо-Кавказский федеральный округ</RadioButton>
+            <RadioButton FontSize="18" x:Name="dalnevostochniyRadio" VerticalContentAlignment="Center" Checked="severoKavkasRadio_Checked" GroupName="okruga">Дальневосточный федеральный округ</RadioButton>
+            <RadioButton FontSize="18" x:Name="severoZapadRadio" VerticalContentAlignment="Center" Checked="severoKavkasRadio_Checked" GroupName="okruga">Северо-Западный федеральный округ</RadioButton>
+            <RadioButton FontSize="18" x:Name="southRadio" VerticalContentAlignment="Center" Checked="severoKavkasRadio_Checked" GroupName="okruga">Южный федеральный округ</RadioButton>
+            <RadioButton FontSize="18" x:Name="uralRadio" VerticalContentAlignment="Center" Checked="severoKavkasRadio_Checked" GroupName="okruga">Уральский федеральный округ</RadioButton>
+            <RadioButton FontSize="18" x:Name="centalRadio" VerticalContentAlignment="Center" Checked="severoKavkasRadio_Checked" GroupName="okruga">Центральный федеральный округ</RadioButton>
+            <RadioButton FontSize="18" x:Name="sibirRadio" VerticalContentAlignment="Center" Checked="severoKavkasRadio_Checked" GroupName="okruga">Сибирский федеральный округ</RadioButton>
+            <TextBlock Text="От" FontSize="20" ></TextBlock>
+            <TextBox FontSize="20" Text="23.03.2023" Height="30" Margin="0,0,10,0" x:Name="dateFrtxt"></TextBox>
+            <TextBlock FontSize="20" Text="До"></TextBlock>
+            <TextBox FontSize="20" Text="23.03.2023" Height="30" Margin="0,0,10,0" x:Name="dateTotxt"></TextBox>
+            <TextBlock FontSize="20" Text="Дата запуска парсера(дд.ММ.гггг чч:мм)" Margin="0,5,0,0"></TextBlock>
+            <TextBox FontSize="20" Height="30" Margin="0,0,10,0" x:Name="dateZapusktxt"></TextBox>
+            <Button Height="50" Content="Старт" FontSize="20"  Margin="0,10,10,0" Click="Button_Click" ></Button>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Дата запуска:" FontSize="20"></TextBlock>
+                <TextBlock x:Name="dateOfZapuskTxtVivod" FontSize="20"></TextBlock>
+            </StackPanel>
+            <ListBox Height="200" x:Name="logiLstbox">
+                
+            </ListBox>
+            
+        </StackPanel>
+    </Grid>
+</Window>
